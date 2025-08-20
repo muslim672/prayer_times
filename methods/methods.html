@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang='ar' dir='rtl' data-bs-theme='dark'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>طرق الحساب</title>
+<link href='https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.rtl.min.css' rel='stylesheet'>
+</head>
+
+<body>
+<table class='table'>
+    <thead><tr><th>الاسم بالعربية</th><th>الاسم بالإنجليزية</th><th>زاوية الفجر</th><th>زاوية العشاء</th></tr></thead>
+    <tbody id='tableBody'></tbody>
+</table>
+
+<script src='methodTable.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.bundle.min.js'></script>
+
+<script>
+const tableBodyEl = document.getElementById('tableBody');
+prayerMethods.forEach(method => {
+    const row = document.createElement('tr');
+    const nameArCell = document.createElement('td');
+    nameArCell.textContent = method.nameAr;
+    row.appendChild(nameArCell);
+    const nameEnCell = document.createElement('td');
+    nameEnCell.dir = 'ltr';
+    nameEnCell.textContent = method.nameEn;
+    row.appendChild(nameEnCell);
+    const fajrAngleCell = document.createElement('td');
+    fajrAngleCell.textContent = method.fajrAngle;
+    row.appendChild(fajrAngleCell);
+    const ishaAngleCell = document.createElement('td');
+    ishaAngleCell.textContent = method.ishaAngle;
+    row.appendChild(ishaAngleCell);
+    tableBodyEl.appendChild(row);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!--2025-03-15-->
+<!DOCTYPE html>
+<html lang='ar' dir='rtl'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>مواقيت الصلاة</title>
+<link href='style.css' rel='stylesheet'>
+</head>
+
+<body>
+<button class='btn' data-bs-toggle='offcanvas' data-bs-target='#offcanvas'>☰</button>
+<div class='offcanvas offcanvas-start' id='offcanvas'>
+    <div class='offcanvas-body'>
+        <button class='btn-close' data-bs-dismiss='offcanvas'></button>
+
+        <label class='form-label'>
+            لتفعيل الوضع المظلم/المنير:
+            <button class='btn' id='toggle'></button>
+        </label><hr>
+
+        <label class='form-label'>
+            دائرة العرض:
+            <input class='form-control' type='number' id='lat'>
+        </label><hr>
+
+        <label class='form-label'>
+            خط الطول:
+            <input class='form-control' type='number' id='long'>
+        </label><hr>
+
+        <label class='form-label'>
+            الارتفاع عن الأفق:
+            <button class='btn' data-bs-toggle='tooltip' data-bs-title='مجموع طول الراصد وارتفاعه.'>i</button>
+            <input class='form-control' type='number' id='elev'>
+        </label><hr>
+
+        <label class='form-label'>
+            التاريخ:
+            <input class='form-control' type='date' id='stamp'>
+        </label><hr>
+
+        <div class='dropdown'>
+            <label class='form-label'>حساب الفجر والعشاء:</label>
+            <button class='btn' data-bs-toggle='dropdown' id='prayerMethodsBtn'></button>
+            <div class='dropdown-menu' id='prayerMethods'></div>
+        </div>
+
+        <a href='methods/methods.html'>طرق الحساب</a><hr>
+
+        <div class='dropdown'>
+            <label class='form-label'>حساب بداية الشهر الهجري:</label>
+            <button class='btn' data-bs-toggle='dropdown' id='hijriMethodsBtn'></button>
+            <div class='dropdown-menu' id='hijriMethods'></div>
+        </div>
+    </div>
+    <a href='https://fiqhcouncil.org/fifteen-or-eighteen-degrees-calculating-prayer-fasting-times-in-islam/'>مقال قيّم حول تحديد زاوية الفجر والعشاء</a>
+
+    <a href='https://github.com/muslim672/prayer_times'>الكود المرجعي</a>
+</div>
+
+<h1>{إِنَّ الصَّلَوٰةَ كَانَتْ عَلَى الْمُؤْمِنِينَ كِتَٰبًا مَّوْقُوتًا} [النساء: 103].</h1>
+
+<div id='container'>
+    <button class='btn' id='getLocationBtn' onclick='getLocation()'>اضغط هنا لتحديث مواقيت الصلاة.</button>
+
+    <p class='form-control' id='hijri'></p>
+
+    <p class='form-control' id='timer'></p>
+
+    <table id='prayerTable'></table>
+
+    <div class='alert alert-primary' id='info'>
+        <p id='hijriMethod'></p>
+        <p id='prayerMethod'></p>
+        <p id='fajr'></p>
+        <p id='isha'></p>
+    </div>
+</div>
+
+<script src='themeToggle.js'></script>
+<script src='bootstrapScript.js'></script>
+
+<script src='sunMod/tables.js'></script>
+<script src='sunMod/tables_sun.js'></script>
+<script src='sunMod/tables_moon.js'></script>
+<script src='sunMod/mathMod.js'></script>
+<script src='sunMod/astro.js'></script>
+
+<script src='pyEphem/rise_set.js'></script>
+<script src='pyEphem/transit.js'></script>
+<script src='pyEphem/timeof.js'></script>
+<script src='pyEphem/moon_phase.js'></script>
+
+<script src='methods/methodTable.js'></script>
+<script src='methods/methods.js'></script>
+
+<script src='moonMod/istitla.js'></script>
+<script src='moonMod/isVisible.js'></script>
+<script src='moonMod/new_moon.js'></script>
+<script src='moonMod/hijri.js'></script>
+
+<script src='prayer_times.js'></script>
+<script src='prayerView.js'></script>
+</body>
+</html>
